@@ -8,11 +8,4 @@ jobs:
     steps:
       - checkout
       - run: go version
-      - run:
-        name: "Run unit tests"
-        command: make test
-        
-workflows:
-  test-all:
-    jobs:
-      - build
+      - run: make test
