@@ -3,8 +3,9 @@ jobs:
   build:
     docker:
       - image: gocv/opencv:4.5.0
-
-    working_directory: /go/src/github.com/{{ORG_NAME}}/{{REPO_NAME}}
+    working_directory: /usr/local/go/src/github.com/hybridgroup/gocv
     steps:
       - checkout
-      - run: make test
+      - run:
+        name: "Run unit tests"
+        command: make test
