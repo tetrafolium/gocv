@@ -17,7 +17,7 @@ jobs:
             apt-get update -yqq && apt-get install xvfb -y
       - run:
           name: Run xvfb
-          command: sh -e /etc/init.d/xvfb start
+          command: Xvfb :99 -screen 0 1280x1024x24
           background: true
       - run:
           name: Run tests
