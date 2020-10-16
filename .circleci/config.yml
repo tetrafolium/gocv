@@ -15,6 +15,6 @@ jobs:
             apt-get update -yqq && apt-get install xvfb -y
       - run:
           name: Run tests
-          command: Xvfb :99 -screen 0 1024x1024x24 & make test
+          command: xvfb-run -a --error-file /var/log/xvfb_error.log --server-args="-screen 0 1024x768x24 +extension RANDR" make test
           environment:
               DISPLAY: 99.0
