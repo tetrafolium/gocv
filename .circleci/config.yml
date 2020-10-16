@@ -10,10 +10,10 @@ jobs:
           name: Check Go version
           command: go version
       - run:
-        name: Install dependencies
-        command: |
-          apt-get update -yqq && apt-get install xvfb unzip -y
-        - run:
+          name: Install dependencies
+          command: |
+            apt-get update -yqq && apt-get install xvfb unzip -y
+      - run:
           name: "Install Caffe test model"
           command: |
             mkdir -p testdata
