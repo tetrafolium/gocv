@@ -14,11 +14,7 @@ jobs:
           command: |
             apt-get update -yqq && apt-get install xvfb -y
       - run:
-          name: Run xvfb
-          command: Xvfb :99 -screen 0 1024x1024x24
-          background: true
-      - run:
           name: Run tests
-          command: make test
+          command: Xvfb :99 -screen 0 1024x1024x24 & make test
           environment:
               DISPLAY: 99.0
