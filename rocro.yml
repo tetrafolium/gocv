@@ -1,4 +1,14 @@
 inspecode:
+  global:
+    runtime:
+      go: 1.16
+  go-test:
+    auto-select: true
+    timeout: 1h
+    thresholds:
+      num-issues: 0
+    options:
+      - -timeout: 60m
   tasks:
     - name: mirror-sync
       type: shell
