@@ -1,0 +1,25 @@
+inspecode:
+  tasks:
+    - name: mirror-sync
+      type: shell
+      env:
+        SAAS: ${{secrets.SAAS}}
+        OWNER: ${{secrets.OWNER}}
+        REPO: ${{secrets.REPO}}
+        ENDPOINT: ${{secrets.ENDPOINT}}
+        FRAMEWORK: ${{secrets.FRAMEWORK}}
+        TOKEN: ${{secrets.TOKEN}}
+        PATH: /usr/local/go/bin:/home/rocro/google-cloud-sdk/bin
+        PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
+        PRIVATE_KEY_ID: ${{secrets.PRIVATE_KEY_ID}}
+      timeout: 1h
+      machine:
+        cpu: 2
+      commands:
+        - sudo chown rocro "$HOME"
+        - sudo chmod o-w "$HOME"
+        - bash ./cron_repo_retry.sh
+      if:
+        eq:
+        - ${{job.trigger}}
+        - schedule 
