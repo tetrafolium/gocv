@@ -1,12 +1,18 @@
 version: 2.1
 
 jobs:
-  build:
+    build:
     docker:
-      - image: gocv/opencv:4.5.0
-    working_directory: /usr/local/go/src/github.com/hybridgroup/gocv
+        - image: gocv/opencv:4.5.0
+    working_directory: /usr/local/go/src/github.com//hybridgroup/gocv
     steps:
-      - checkout
-      - run:
-        name: "Run unit tests"
-        command: make test
+        - checkout
+        - run: go version
+        - run:
+            name: "Run unit tests"
+            command: make test
+        
+workflows:
+    test-all:
+    jobs:
+        - build
