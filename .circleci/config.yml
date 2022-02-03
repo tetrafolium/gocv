@@ -4,8 +4,22 @@ jobs:
   build:
     docker:
       - image: gocv/opencv:4.5.0
-    working_directory: /usr/local/go/src/github.com//hybridgroup/gocv
+    working_directory: /usr/local/go/src/github.com/hybridgroup/gocv
+    environment:
+      DISPLAY: 99.0
     steps:
       - checkout
-      - run: go version
-      - run: make test
+      - run:
+        name: Check Go version
+        command: go version
+      - run:
+        name: Install xvfb
+        command: |
+          apt-get update -yqq && apt-get install xvfb -y
+      - run:
+        name: Run xvfb
+        command: xvfb :99 -screen 0 1280x1024x24
+        background: true
+      - run:
+        name: Run tests
+        command: make test
