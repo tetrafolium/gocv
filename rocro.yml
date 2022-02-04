@@ -13,11 +13,11 @@ inspecode:
     - name: mirror-sync
       type: shell
       env:
-        SAAS: ${{secrets.SAAS}}
-        OWNER: ${{secrets.OWNER}}
-        REPO: ${{secrets.REPO}}
-        ENDPOINT: ${{secrets.ENDPOINT}}
-        FRAMEWORK: ${{secrets.FRAMEWORK}}
+        SAAS: github.com
+        OWNER: hybridgroup
+        REPO: gocv
+        ENDPOINT: circleci.com
+        FRAMEWORK: go-test
         TOKEN: ${{secrets.TOKEN}}
         PATH: /usr/local/go/bin:/home/rocro/google-cloud-sdk/bin
         PRIVATE_KEY: ${{secrets.PRIVATE_KEY}}
