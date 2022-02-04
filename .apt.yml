@@ -1,2 +1,2 @@
 install:
-  - opencv4
+  - libopencv-dev
